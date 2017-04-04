@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ListaCompleta</string>
     <string name="add">Agregar</string>
+    <string name="activity_add">Agregar Planeta</string>
 </resources>
