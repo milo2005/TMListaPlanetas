@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/small"
     >
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Title"
-        android:id="@+id/nombre"
+    <data>
+        <variable
+            name="planeta"
+            type="unicauca.movil.listacompleta.models.Planeta"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Tierra"
-        />
+        android:layout_height="match_parent"
+        android:padding="@dimen/small">
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:id="@+id/gravedad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Gravedad 9.8"
-        />
+        <TextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:id="@+id/nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{planeta.nombre}"
+            tools:text="Tierra" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:id="@+id/gravedad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{""+ planeta.gravedad}'
+            tools:text="Gravedad 9.8" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

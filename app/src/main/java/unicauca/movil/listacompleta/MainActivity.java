@@ -2,6 +2,7 @@ package unicauca.movil.listacompleta;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.hardware.SensorManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,28 +20,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import unicauca.movil.listacompleta.adapters.PlanetaAdapter;
+import unicauca.movil.listacompleta.databinding.ActivityMainBinding;
 import unicauca.movil.listacompleta.models.Planeta;
 import unicauca.movil.listacompleta.util.Data;
 
 public class MainActivity extends AppCompatActivity implements DialogInterface.OnClickListener{
 
-    ListView list;
+    ActivityMainBinding binding;
     PlanetaAdapter adapter;
     int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        list = (ListView) findViewById(R.id.list);
         Data.planetas = new ArrayList<>();
         adapter = new PlanetaAdapter(this, Data.planetas);
 
-        list.setAdapter(adapter);
+        binding.list.setAdapter(adapter);
         loadPlanetas();
 
-        registerForContextMenu(list);
+        registerForContextMenu(binding.list);
     }
 
     //region Load Data
